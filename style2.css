@@ -20,6 +20,11 @@ img {
   width: 1000px;
   left: 1230px;
   top: 230px;
+  isolation: isolate;
+}
+
+.sun > img {
+  transform: scale(1.15);
 }
 
 .Mercury {
@@ -77,4 +82,45 @@ img {
   width: 130px;
   left: -850px;
   bottom: 430px;
+}
+/* the > indicate Only images immediately inside .sun,
+".sun > div::before(create a pseudo-element inside each selected div, before its existing content.) shows Styles for the curved lines" */
+  .sun
+  > div::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  border: 2px solid #5a5b5c;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.Mercury {
+  --orbit-size: 900px;
+}
+.venus {
+  --orbit-size: 1200px;
+}
+.earth {
+  --orbit-size: 1500px;
+}
+.mars {
+  --orbit-size: 1800px;
+}
+.jupital {
+  --orbit-size: 2100px;
+}
+.saturn {
+  --orbit-size: 2400px;
+}
+.uranus {
+  --orbit-size: 2700px;
+}
+.nepturn {
+  --orbit-size: 3000px;
 }
